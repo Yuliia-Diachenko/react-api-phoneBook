@@ -4,13 +4,11 @@ import SearchBox from '../SearchBox/SearchBox';
 import ContactList from "../ContactList/ContactList"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { fetchContacts } from '../../redux/contactsOps.js';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
 import Loader from '../Loader/Loader.jsx';
 import Error from '../Error/Error.jsx';
-import { selectLoading, selectError } from "../../redux/contactsSlice";
+import { selectLoading, selectError } from "../../redux/contacts/slice.js";
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
