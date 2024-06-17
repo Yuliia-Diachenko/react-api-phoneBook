@@ -1,47 +1,23 @@
-import css from './App.module.css';
-import ContactForm from '../ContactForm/ContactForm';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactList from "../ContactList/ContactList"
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import Loader from '../Loader/Loader.jsx';
-import Error from '../Error/Error.jsx';
-import { selectLoading, selectError } from "../../redux/contacts/slice.js";
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
-export const fetchContacts = createAsyncThunk(
-  'contacts/fetchAll',
-  async (_, thunkAPI) => {      
-      
-      try {
-          const response = await axios.get('/contacts');
-          return response.data;  
-      } catch (error) {
-          return thunkAPI.rejectWithValue(error.message);
-      
-      }
-  });
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const RegistrationPage = lazy(() => import("../../pages/RegistrationPage/RegistrationPage"));
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() => import("../../pages/ContactsPage/ContactsPage"));
 
-function App() {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
-  const isError = useSelector(selectError);
-  useEffect(() => {dispatch(fetchContacts())}, [dispatch]);
-
-return (
-
-<div className={css.container}>
-
-  <h1>Phonebook</h1>
-    <ContactForm />
-    <SearchBox />
-    {isLoading && <Loader>Loading message</Loader>}
-    {isError && <Error>Error message</Error>}
-    <ContactList /> 
-
-</div>
-
-)
+export default function App() {
+  return (
+    <Layout>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </Suspense>
+    </Layout>
+  );
 }
-export default App;
