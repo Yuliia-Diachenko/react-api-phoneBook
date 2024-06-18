@@ -56,3 +56,23 @@ export const logIn = createAsyncThunk("auth/login",
     }
   });
   
+//   GET
+//   /users/current
+//   Get information about the current user
+
+  export const refreshUser = createAsyncThunk(
+    "auth/refresh",
+    async (_, thunkAPI) => {
+      const reduxState = thunkAPI.getState();
+      setAuthHeader(reduxState.auth.token);
+  
+      const res = await axios.get("/users/current");
+      return res.data;
+    },
+    {
+      condition(_, thunkAPI) {
+        const reduxState = thunkAPI.getState();
+        return reduxState.auth.token !== null;
+      },
+    }
+  );

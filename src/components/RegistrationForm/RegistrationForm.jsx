@@ -10,7 +10,7 @@ export default function RegistrationForm() {
     dispatch(register(values))
       .unwrap()
       .then(data => console.log(data))
-      .catch(alert("Registration error!"));
+      .catch(err => console.log(err));
 
     actions.resetForm();
   };
