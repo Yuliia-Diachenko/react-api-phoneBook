@@ -11,7 +11,7 @@ export default function Navigation() {
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/user/contacts">
+        <NavLink className={css.link} to="/contacts">
           Contacts
         </NavLink>
       )}

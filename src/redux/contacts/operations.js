@@ -39,3 +39,15 @@ import axios from 'axios';
                 
                 }
             });
+        export const updateContact = createAsyncThunk(
+            "contacts/updateContact",
+            async ({id, name, number}, thunkAPI) => {
+                try {
+                    const response = await axios.patch(`/contacts/${id}`, {name, number});
+                    return response.data;
+                } catch (error) {
+                    return thunkAPI.rejectWithValue(error.message);
+                    
+                }
+            }
+        );
