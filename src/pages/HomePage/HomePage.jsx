@@ -1,6 +1,7 @@
 // import { css } from "@emotion/react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import css from "./HomePage.module.css";
+import { GiNotebook } from "react-icons/gi";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
       In this web application, you can save your contacts, 
       emergency numbers and have access to the phone book from any device with Internet access.
       </p>
-      <img src="src/assets/white_pages.svg" alt="PhoneBook" width={400} className={css.image}/>
+      <GiNotebook className={css.image}/>
       </div>
   );
 }
