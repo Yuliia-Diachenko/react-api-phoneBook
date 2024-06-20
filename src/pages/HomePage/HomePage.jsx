@@ -1,23 +1,18 @@
+// import { css } from "@emotion/react";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className={css.container}>
       <PageTitle>
-        Phone Book welcome page{" "}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
+      Welcome to the phone book application.
       </PageTitle>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-        asperiores eius nobis saepe quis voluptatibus facere expedita tempora,
-        hic similique natus minima fugit doloribus molestiae dolorum sed debitis
-        tempore consectetur repellat, accusantium aspernatur incidunt
-        doloremque. Quod doloribus beatae, molestiae voluptatibus, numquam
-        recusandae accusamus voluptatem aliquam, sed vero consectetur esse
-        harum?
+      In this web application, you can save your contacts, 
+      emergency numbers and have access to the phone book from any device with Internet access.
       </p>
+      <img src="public/istockphoto-1352955578-612x612.jpg" alt="PhoneBook" width={400} className={css.image}/>
       </div>
   );
 }

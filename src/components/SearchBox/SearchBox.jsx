@@ -20,8 +20,8 @@ function SearchBox() {
 
     return (
         <form className={css.form}>
-            <label >Find contacts by name</label>
-            <input id={`${contactId}-name`} type="text"   value={name || number} onChange={handleFilter}/>
+            <label >Find contacts by name or number</label>
+            <input id={`${contactId}-name`} type="text" value={name || number} onChange={handleFilter}/>
         </form>
     )
 }

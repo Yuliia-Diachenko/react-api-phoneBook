@@ -6,6 +6,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectLoading, selectVisibleContacts } from "../../redux/contacts/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import css from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -17,12 +18,12 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <>
-      <PageTitle>Your contacts</PageTitle>
-      <ContactForm />
-      <SearchBox />
+    <div className={css.container}>
+      <div><PageTitle>Your contacts</PageTitle></div>
+      <div><ContactForm /></div>
+      <div><SearchBox /></div>
       <div>{isLoading && "Request in progress..."}</div>      
-      <ContactList contacts = {contacts} />
-    </>
+      <div><ContactList contacts = {contacts} /> </div>
+    </div>
   );
 }
