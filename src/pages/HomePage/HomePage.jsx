@@ -12,7 +12,7 @@ export default function HomePage() {
       In this web application, you can save your contacts, 
       emergency numbers and have access to the phone book from any device with Internet access.
       </p>
-      <img src="src/assets/istockphoto-1352955578-612x612.jpg" alt="PhoneBook" width={400} className={css.image}/>
+      <img src="src/assets/white_pages.svg" alt="PhoneBook" width={400} className={css.image}/>
       </div>
   );
 }
