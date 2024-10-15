@@ -31,7 +31,7 @@ export default function ModalWindow({id}) {
   return (
     <div >
       
-      <button className={css.button} onClick={handleOpen} >Delate</button>
+      <button className={css.button} onClick={handleOpen} >Delete</button>
       <Modal
         open={open}
         onClose={handleClose}
